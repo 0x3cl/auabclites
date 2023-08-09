@@ -29,7 +29,22 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+
+// HOME ROUTES
+$routes->group('/', ['namespace' => 'App\Controllers\Home'], function($routes) {
+    $routes->get('/', 'ViewsController::index');
+    $routes->get('home', 'ViewsController::index');
+    $routes->get('admission', 'ViewsController::index');
+    $routes->get('news', 'ViewsController::index');
+    $routes->get('faculty', 'ViewsController::index');
+    $routes->get('officers', 'ViewsController::index');
+    
+    // GROUP ROUTES
+    $routes->group('/', function($routes) {
+        $routes->get('research', 'ViewsController::index');
+        $routes->get('research/view/(:num)', 'ViewsController::index/$1');
+    });
+});
 
 /*
  * --------------------------------------------------------------------
