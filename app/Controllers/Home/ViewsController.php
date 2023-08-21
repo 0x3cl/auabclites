@@ -22,7 +22,7 @@ class ViewsController extends BaseController {
             'admission' => [
                 'title' => 'ADMISSION | SITES | Arellano University - Andres Bonifacio Campus',
                 'isSubPage' => false,
-                'view' => 'admmission'
+                'view' => 'admission'
             ],
             'news' => [
                 'title' => 'NEWS | SITES | Arellano University - Andres Bonifacio Campus',
@@ -106,7 +106,12 @@ class ViewsController extends BaseController {
 
     public function index($id = null) {
         $segments = $this->request->uri->getSegments();
-        $page = $segments[0] . (isset($segments[1]) ? '/' . $segments[1] : '');
+        
+        $page = '/';
+
+        if(!empty($segments)) {
+            $page = $segments[0] . (isset($segments[1]) ? '/' . $segments[1] : '');
+        }
 
         // IF NOT EMPTY ID MEANING
         // THE CURRENT ROUTE HAS A DATA TO BE FETCHED

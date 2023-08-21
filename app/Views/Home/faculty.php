@@ -9,19 +9,19 @@
             <div class="org-content m-auto mt-5">
                 <div class="d-flex justify-content-center align-items-center">
                     <div class="org-logo">
-                        <img src="/assets/images/logo/site_logo.png" alt="organization">
+                        <img src="/assets/home/images/logo/site_logo.png" alt="organization">
                     </div>
                     <div class="org-logo">
-                        <img src="/assets/images/logo/ict_logo.png" alt="organization">
+                        <img src="/assets/home/images/logo/ict_logo.png" alt="organization">
                     </div>
                     <div class="org-logo active">
-                        <img src="/assets/images/logo/inp_logo.png" alt="organization">
+                        <img src="/assets/home/images/logo/inp_logo.png" alt="organization">
                     </div>
                     <div class="org-logo">
-                        <img src="/assets/images/logo/shtm_logo.png" alt="organization">
+                        <img src="/assets/home/images/logo/shtm_logo.png" alt="organization">
                     </div>
                     <div class="org-logo">
-                        <img src="/assets/images/logo/ssg_logo.png" alt="organization">
+                        <img src="/assets/home/images/logo/ssg_logo.png" alt="organization">
                     </div>
                     <div class="controls">
                         <div class="control-prev" onclick="changeLogo(-1)">

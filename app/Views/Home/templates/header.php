@@ -9,10 +9,10 @@
     <meta name="theme-color" content="#801313">
     <meta property="og:image" content="/">
     <meta property="og:title" content="SITES | ARELLANO UNIVERSITY ANDRES BONIFACIO CAMPUS">
-    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/assets/images/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/home/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/home/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/home/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/assets/home/images/favicon/site.webmanifest">
     <title><?= $title;?></title>
     <!-- BS5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
@@ -21,7 +21,7 @@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <!-- CUSTOM CSS -->
-    <link rel="stylesheet" href="/assets/libraries/css/app.css">
+    <link rel="stylesheet" href="/assets/home/libraries/css/app.css">
 </head>
 <body>
 <div class="cookie-policy">
@@ -41,22 +41,22 @@
         </div>
     </div>
 </div>
-<!-- <div class="loader">
+<div class="loader">
     <div class="loader-primary"></div>
     <div class="loader-secondary"></div>
     <div class="loader-tertiary"></div>
     <div class="loader-content">
         <div>
             <div class="logo-content">
-                <img src="/assets/images/logo/it_logo.png" alt="" srcset="">
-                <img src="/assets/images/logo/cs_logo.png" alt="" srcset="">
-                <img src="/assets/images/logo/au_logo.png" alt="" srcset="">
-                <img src="/assets/images/logo/site_logo.png" alt="" srcset="">
-                <img src="/assets/images/logo/lites_logo.png" alt="" srcset="">
+                <img src="/assets/home/images/logo/it_logo.png" alt="" srcset="">
+                <img src="/assets/home/images/logo/cs_logo.png" alt="" srcset="">
+                <img src="/assets/home/images/logo/au_logo.png" alt="" srcset="">
+                <img src="/assets/home/images/logo/site_logo.png" alt="" srcset="">
+                <img src="/assets/home/images/logo/lites_logo.png" alt="" srcset="">
             </div>
         </div>
     </div>
-</div> -->
+</div>
 <div class="scroll-top">
     <i class='bx bxs-up-arrow' ></i>
 </div>

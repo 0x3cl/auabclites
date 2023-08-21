@@ -9,7 +9,7 @@
             <div class="row mt-5">
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/research/3.png" alt="bulletin">
+                        <img src="/assets/home/images/research/3.png" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>June 25, 2023</small>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/research/4.png" alt="bulletin">
+                        <img src="/assets/home/images/research/4.png" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>May 5, 2023</small>
@@ -35,7 +35,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/research/5.png" alt="bulletin">
+                        <img src="/assets/home/images/research/5.png" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>January 5, 2023</small>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/research/6.png" alt="bulletin">
+                        <img src="/assets/home/images/research/6.png" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>June 14, 2023</small>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/research/7.png" alt="bulletin">
+                        <img src="/assets/home/images/research/7.png" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>June 14, 2023</small>
@@ -74,7 +74,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/research/8.png" alt="bulletin">
+                        <img src="/assets/home/images/research/8.png" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>June 14, 2023</small>

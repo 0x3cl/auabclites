@@ -2,7 +2,7 @@
         <div class="footer-inner">
             <div class="container py-5">
                 <div class="footer-logo" data-aos="fade-up">
-                    <img src="/assets/images/logo/au_logo.png" alt="logo">
+                    <img src="/assets/home/images/logo/au_logo.png" alt="logo">
                 </div>
                 <div class="row mt-5">
                     <div class="col-12 col-md-5 mb-3" data-aos="fade-up">
@@ -81,5 +81,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="/assets/libraries/js/app.js"></script>
+<script src="/assets/home/libraries/js/app.js"></script>
 </html>

@@ -31,7 +31,8 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 
 // HOME ROUTES
-$routes->group('/', ['namespace' => 'App\Controllers\Home'], function($routes) {
+
+$routes->group('', ['namespace' => 'App\Controllers\Home'], function($routes) {
     $routes->get('/', 'ViewsController::index');
     $routes->get('home', 'ViewsController::index');
     $routes->get('admission', 'ViewsController::index');
@@ -45,6 +46,99 @@ $routes->group('/', ['namespace' => 'App\Controllers\Home'], function($routes) {
         $routes->get('research/view/(:num)', 'ViewsController::index/$1');
     });
 });
+
+// ADMIN ROUTES
+
+$routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($routes) {
+    $routes->get('/', 'ViewsController::index');
+    $routes->get('signout', 'ViewsController::index');
+
+    $routes->group('login', function($routes) {
+        $routes->get('/', 'ViewsController::index');
+        $routes->post('/', 'Process\LoginAuthController::login');
+    });
+
+    $routes->get('dashboard', 'ViewsController::index');
+    $routes->get('notify', 'ViewsController::index');
+
+    // MANAGE USERS
+
+    $routes->group('manage', function($routes) {
+        $routes->get('users', 'ViewsController::index');
+        $routes->get('users/add', 'ViewsController::index');
+        $routes->post('users/add', 'Process\UserController::add');
+        
+        $routes->get('users/update/(:num)', 'ViewsController::index/$1');
+        $routes->get('users/delete/(:num)', 'ViewsController::index/$1');
+        $routes->post('users/update/profile/image', 'Process\UserController::update_profile_image');
+        $routes->post('users/update/profile', 'Process\UserController::update_profile');
+        $routes->post('users/delete', 'Process\UserController::delete');
+    });
+
+    // MANAGE PAGE CONTENT
+
+    $routes->group('manage', function($routes) {
+        $routes->group('page/home', function($routes) {
+            $routes->get('/', 'ViewsController::index');
+            $routes->get('logo/update/(:num)', 'ViewsController::index/$1');
+            $routes->get('carousel', 'ViewsController::index');
+            $routes->get('courses', 'ViewsController::index');
+
+            $routes->post('logo/update', 'Process\HomeController::update_banner');
+            $routes->post('banner/update', 'Process\HomeController::update_banner');
+            $routes->post('carousel', 'Process\HomeController::add_carousel');
+            $routes->post('carousel/delete', 'Process\HomeController::delete_carousel');
+            
+        });
+        $routes->get('page/admission', 'ViewsController::index');
+
+        $routes->group('page/bulletin', function($routes) {
+            $routes->get('/', 'ViewsController::index');
+            $routes->get('view', 'ViewsController::index');
+            $routes->get('add', 'ViewsController::index');
+            $routes->get('update/(:num)', 'ViewsController::index/$1');
+            $routes->get('delete/(:num)', 'ViewsController::index/$1');
+
+            $routes->post('add', 'Process\BulletinController::add');
+            $routes->post('update/(:num)', 'Process\BulletinController::update/$1');
+            $routes->post('update/banner/(:num)', 'Process\BulletinController::update_banner/$1');
+            $routes->post('image/add', 'Process\BulletinController::add_image');
+            $routes->post('image/delete', 'Process\BulletinController::delete_image');
+            $routes->post('delete', 'Process\BulletinController::delete'); 
+
+        });
+
+        $routes->group('page/faculty', function($routes) {
+            $routes->get('/', 'ViewsController::index');
+            $routes->get('add', 'ViewsController::index');
+            $routes->get('update/(:num)', 'ViewsController::index/$1');
+            $routes->get('delete/(:num)', 'ViewsController::index/$1');
+
+            $routes->post('add', 'Process\FacultyController::add');
+            $routes->post('update/image', 'Process\FacultyController::update_image');
+            $routes->post('update/data', 'Process\FacultyController::update_data');
+            $routes->post('delete', 'Process\FacultyController::delete');
+        });
+
+        $routes->group('page/officers', function($routes) {
+            $routes->get('/', 'ViewsController::index');
+            $routes->get('add', 'ViewsController::index');
+            $routes->get('update/(:num)', 'ViewsController::index/$1');
+            $routes->get('delete/(:num)', 'ViewsController::index/$1');
+
+            $routes->post('add', 'Process\OfficersController::add');
+            $routes->post('update/image', 'Process\OfficersController::update_image');
+            $routes->post('update/data', 'Process\OfficersController::update_data');
+            $routes->post('delete', 'Process\OfficersController::delete');
+
+        });
+        $routes->get('page/research', 'ViewsController::index');
+        $routes->get('page/contacts', 'ViewsController::index');
+        $routes->post('page/contacts', 'Process\ContactController::update');
+    });
+
+});
+
 
 /*
  * --------------------------------------------------------------------

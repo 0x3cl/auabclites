@@ -1,6 +1,6 @@
 <div class="group-content">
     <div class="site-banner mb-3" data-aos="fade-up">
-        <img src="/assets/images/bg/banner.png" alt="" srcset="">
+        <img src="/assets/home/images/bg/banner.png" alt="" srcset="">
     </div>
     <div id="home">
         <div class="container">
@@ -26,28 +26,28 @@
                         </div>
                     <div class="carousel-inner">
                         <div class="carousel-item active" data-bs-interval="3000">
-                        <img src="/assets/images/bg/au-1.jpg">
+                        <img src="/assets/home/images/bg/au-1.jpg">
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
-                        <img src="/assets/images/bg/au-2.jpg">
+                        <img src="/assets/home/images/bg/au-2.jpg">
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
-                        <img src="/assets/images/bg/au-3.jpg">
+                        <img src="/assets/home/images/bg/au-3.jpg">
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
-                        <img src="/assets/images/bg/au-4.jpg">
+                        <img src="/assets/home/images/bg/au-4.jpg">
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
-                        <img src="/assets/images/bg/au-5.jpg">
+                        <img src="/assets/home/images/bg/au-5.jpg">
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
-                        <img src="/assets/images/bg/au-6.jpg">
+                        <img src="/assets/home/images/bg/au-6.jpg">
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
-                        <img src="/assets/images/bg/au-7.jpg">
+                        <img src="/assets/home/images/bg/au-7.jpg">
                         </div>
                         <div class="carousel-item" data-bs-interval="3000">
-                        <img src="/assets/images/bg/au-8.jpg">
+                        <img src="/assets/home/images/bg/au-8.jpg">
                         </div>
                     </div>
                     </div>
@@ -66,7 +66,7 @@
             <div class="row my-4">
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/bulletin/summa-grad.jpg" alt="bulletin">
+                        <img src="/assets/home/images/bulletin/summa-grad.jpg" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>June 25, 2023</small>
@@ -79,7 +79,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/bulletin/concert.png" alt="bulletin">
+                        <img src="/assets/home/images/bulletin/concert.png" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>May 5, 2023</small>
@@ -92,7 +92,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/bulletin/univ-week.jpg" alt="bulletin">
+                        <img src="/assets/home/images/bulletin/univ-week.jpg" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>January 5, 2023</small>
@@ -105,7 +105,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/bulletin/title-defense.png" alt="bulletin">
+                        <img src="/assets/home/images/bulletin/title-defense.png" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>June 14, 2023</small>
@@ -118,7 +118,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/bulletin/title-defense-2.png" alt="bulletin">
+                        <img src="/assets/home/images/bulletin/title-defense-2.png" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>June 14, 2023</small>
@@ -131,7 +131,7 @@
                 </div>
                 <div class="col-12 col-md-6 col-lg-4 mb-3" data-aos="fade-up">
                     <div class="card card-design">
-                        <img src="/assets/images/bulletin/marketing.jpg" alt="bulletin">
+                        <img src="/assets/home/images/bulletin/marketing.jpg" alt="bulletin">
                         <div class="card-body">
                             <div class="card-date">
                                 <small>June 14, 2023</small>
@@ -163,7 +163,7 @@
                     <div class="card mb-5">
                         <div class="card-body">
                             <div class="course-logo">
-                                <img src="/assets/images/logo/it_logo.png" alt="logo">
+                                <img src="/assets/home/images/logo/it_logo.png" alt="logo">
                             </div>
                             <div class="course-title">
                                 <h3>Bachelor of Science in Information Technology</h3>
@@ -178,7 +178,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="course-logo">
-                                <img src="/assets/images/logo/cs_logo.png" alt="logo">
+                                <img src="/assets/home/images/logo/cs_logo.png" alt="logo">
                             </div>
                             <div class="course-title">
                                 <h3>Bachelor of Science in Computer Science</h3>
@@ -216,7 +216,7 @@
                     <div class="row">
                         <div class="col-12 col-md-6 mb-3" data-aos="fade-right">
                             <div class="card">
-                                <img src="/assets/images/alumni/alumni-1.jpg" alt="alumni">
+                                <img src="/assets/home/images/alumni/alumni-1.jpg" alt="alumni">
                                 <div class="card-body">
                                     <div class="alumni-date">
                                         <small>June 14, 2023</small>
@@ -229,7 +229,7 @@
                         </div>
                         <div class="col-12 col-md-6 mb-3" data-aos="fade-right">
                             <div class="card">
-                                <img src="/assets/images/alumni/alumni-2.jpg" alt="alumni">
+                                <img src="/assets/home/images/alumni/alumni-2.jpg" alt="alumni">
                                 <div class="card-body">
                                     <div class="alumni-date">
                                         <small>June 14, 2023</small>
@@ -242,7 +242,7 @@
                         </div>
                         <div class="col-12 col-md-6 mb-3" data-aos="fade-right">
                             <div class="card">
-                                <img src="/assets/images/alumni/alumni-3.jpg" alt="alumni">
+                                <img src="/assets/home/images/alumni/alumni-3.jpg" alt="alumni">
                                 <div class="card-body">
                                     <div class="alumni-date">
                                         <small>June 14, 2023</small>
@@ -255,7 +255,7 @@
                         </div>
                         <div class="col-12 col-md-6 mb-3" data-aos="fade-right">
                             <div class="card">
-                                <img src="/assets/images/alumni/alumni-4.jpg" alt="alumni">
+                                <img src="/assets/home/images/alumni/alumni-4.jpg" alt="alumni">
                                 <div class="card-body">
                                     <div class="alumni-date">
                                         <small>June 15, 2023</small>

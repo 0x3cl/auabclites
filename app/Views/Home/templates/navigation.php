@@ -41,7 +41,7 @@
     <nav class="navbar header navbar-expand-lg">
         <div class="container">
             <div class="logo solo">
-                <img src="/assets//images/logo/site_logo.png" alt="" srcset="">
+                <img src="/assets/home/images/logo/site_logo.png" alt="" srcset="">
             </div>
             <a href="#" class="navbar-brand d-none d-lg-block">
                 <div>School of Information</div> 
@@ -51,9 +51,9 @@
                 <div class="hamburger"></div>
             </div>
             <div class="logo group">
-                <img src="/assets//images/logo/it_logo.png" alt="" srcset="">
-                <img src="/assets//images/logo/cs_logo.png" alt="" srcset="">
-                <img src="/assets//images/logo/lites_logo.png" alt="" srcset="">
+                <img src="/assets/home/images/logo/it_logo.png" alt="" srcset="">
+                <img src="/assets/home/images/logo/cs_logo.png" alt="" srcset="">
+                <img src="/assets/home/images/logo/lites_logo.png" alt="" srcset="">
             </div>
         </div>
     </nav>
