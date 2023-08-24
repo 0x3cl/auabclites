@@ -123,8 +123,10 @@
                                                             <img src="/assets/home/images/bulletin/' . $image_path . '/' . $value->image . '"
                                                         </td>
                                                         <td>
-                                                            <a href="#" class="btn btn-success mx-1">View</a>
-                                                            <button  class="btn btn-danger mx-1" name="id" value="'.$value->image_id.'">Delete</a>
+                                                            <div class="d-flex gap-2">
+                                                                <a href="#" class="btn btn-success mx-1">View</a>
+                                                                <button  class="btn btn-danger mx-1" name="id" value="'.$value->image_id.'">Delete</a>
+                                                            </div>
                                                         </td>
                                                     </tr>
                                                     ';

@@ -88,7 +88,7 @@ class OfficersController extends BaseController {
         return false;
     }
 
-    public function add() {
+    public function add_data() {
         if($this->request->getMethod() === 'post') {
             if($this->validation('add')){
                 $image = $this->request->getFile('image');
@@ -144,15 +144,15 @@ class OfficersController extends BaseController {
 
                 $model = new CustomModel;
 
-                $filter = [
-                    '0' => [
-                        'field' => 'lites_officers.id',
+                $condition = [
+                    [
+                        'column' => 'lites_officers.id',
                         'isNot' => 'false',
                         'value' => $id
                     ]
                 ];
 
-                $previous_image = $model->getData('lites_officers', $filter)[0]->image;
+                $previous_image = $model->getData('lites_officers', NULL, $condition)[0]->image;
 
                 if(!empty($previous_image)) {
                     unlink($path . $previous_image);   
@@ -236,14 +236,14 @@ class OfficersController extends BaseController {
         }
     }
 
-    public function delete() {
+    public function delete_data() {
         if($this->request->getMethod() === 'post') {
             
             $id = $this->request->getPost('id');
             $model = new CustomModel;
 
             try {
-                if($model->deleteData('lites_officers', 'lites_officers.id', $id)) {
+                if($model->deleteData('lites_officers', ['id' => $id])) {
                     $flashdata = [
                         'status' => 'success',
                         'message' => 'officer successfully deleted'

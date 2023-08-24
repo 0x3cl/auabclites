@@ -22,6 +22,7 @@ class Filters extends BaseConfig
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
         'admin' => \App\Filters\AuthAdminFilter::class,
+        'visitorMiddleware' => \App\Middleware\VisitorMiddleware::class,
     ];
 
     /**
@@ -30,6 +31,7 @@ class Filters extends BaseConfig
      */
     public array $globals = [
         'before' => [
+            'visitorMiddleware'
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',

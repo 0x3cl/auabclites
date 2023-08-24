@@ -69,7 +69,7 @@ class HomeController extends BaseController {
 
                 try {
                     $previous_image = $model->getData('lites_images', $filter)[0]->image;
-                } catch (\Throwable $th) {
+                } catch (\Exception $e) {
                     $flashdata = [
                         'status' => 'error',
                         'message' => 'error: ' . $e->getMessage(),
@@ -206,7 +206,7 @@ class HomeController extends BaseController {
             }
 
             try {
-                $model->deleteData('lites_carousel_images', 'lites_carousel_images.id', $id);
+                $model->deleteData('lites_carousel_images', ['id' => $id]);
                 $flashdata = [
                     'status' => 'success',
                     'message' => 'carousel image successfully deleted',

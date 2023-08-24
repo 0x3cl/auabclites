@@ -1,16 +1,89 @@
+import { get_visitors, get_referrers } from "./data.js";
+
 export function site_visitor_graph() {
+
+// Initialize arrays for month and count data
+let selected_year;
+let month = [];
+let count = [];
+let datasets = [];
+
+// Retrieve visitor data asynchronously
+get_visitors()
+  .then((response) => {
+    // Get the selected year
+    selected_year = new Date().getFullYear();
+
+    // Check if the response status is 200 and the message is 'ok'
+    if (response.status === 200 && response.message === 'ok') {
+      for(let key in response.data) {
+        const data = {
+          label: `${key} VISITORS`,
+          data: Object.values(response.data[key]),
+          backgroundColor: '#801313',
+          borderColor: '#801313',
+          borderWidth: 1
+        }
+        datasets.push(data);
+      }
+
+      // Extract data for the selected year
+      const data = response.data[selected_year];
+
+      // Populate month and count arrays using the data
+      month.push(...Object.keys(data));
+      count.push(...Object.values(data));
+    }
+  })
+  .then(() => {
+    // Select the canvas element by its ID
     const ctx = $('canvas#site-visitor');
+
+    
+    // Create a Chart.js chart
     const chart = new Chart(ctx, {
-        type: 'line',
+      type: 'line',
+      data: {
+        labels: month,
+        datasets: datasets
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+}
+
+export function site_referrer_graph() {
+
+  let referrer = []; 
+  let count = [];
+
+  get_referrers().then((response) => {
+    console.log(response);
+      if (response.status === 200 && response.message === 'ok') {
+        referrer.push(...Object.keys(response.data));
+        for(let key in response.data) {
+          count.push(response.data[key].count);
+        }
+      }
+  }).then(() => {
+    const ctx = $('canvas#site-referrer ');
+    const chart = new Chart(ctx, {
+        type: 'bar',
         data: {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
-            datasets: [{
-              label: 'Total Visitors',
-              data: [12, 19, 3, 5, 2, 3],
-              backgroundColor: 'rgba(54, 162, 235, 0.5)',
-              borderColor: 'rgba(54, 162, 235, 1)', 
-              borderWidth: 1 
-            }]
+          labels: referrer,
+          datasets: [{
+            label: 'Site Referrers',
+            data: count,
+            backgroundColor:  '#801313',
+            hoverOffset: 4
+          }]
         },
         options: {
             responsive: true,
@@ -20,69 +93,6 @@ export function site_visitor_graph() {
               }
             }
         }
-    })
-}
-
-export function site_referrersocmed_graph() {
-  const ctx = $('canvas#site-referrer-socmed ');
-  const chart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: [
-          'Facebook',
-          'Twitter',
-          'Instagram'
-        ],
-        datasets: [{
-          label: 'Social Media',
-          data: [300, 50, 100],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ],
-          hoverOffset: 4
-        }]
-      },
-      options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-      }
-  })
-}
-
-export function site_referrersothers_graph() {
-  const ctx = $('canvas#site-referrer-others ');
-  const chart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: [
-          'Google',
-          'Linkedin',
-          'Others'
-        ],
-        datasets: [{
-          label: 'Social Media',
-          data: [20, 50, 130],
-          backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-          ],
-          hoverOffset: 4
-        }]
-      },
-      options: {
-          responsive: true,
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-      }
-  })
+    }) 
+});
 }

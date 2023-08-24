@@ -32,7 +32,17 @@ class ViewsController extends BaseController {
                 'active' => 'dashboard',
                 'view' => 'dashboard',
                 'data' => [
-                    '',
+                    'get_user_widgets'
+                ]
+            ],
+            'admin/widgets' => [
+                'title' => 'Dashboard | SITES',
+                'isSubPage' => false,
+                'active' => 'widgets',
+                'view' => 'widgets',
+                'data' => [
+                    'get_widgets',
+                    'get_user_widgets'
                 ]
             ],
             'admin/notify' => [
@@ -238,7 +248,44 @@ class ViewsController extends BaseController {
                 'active' => 'pages',
                 'view' => 'manage-research',
                 'data' => [
-                    
+                    'get_research_data'
+                ]
+            ],
+            'admin/manage/page/research/add' => [
+                'title' => 'Manage Home Content | SITES',
+                'isSubPage' => true,
+                'active' => 'pages',
+                'view' => 'add-research',
+                'data' => [
+                    'get_platforms',
+                    'get_technologies',
+                    'get_repositories'
+                ]
+            ],
+            'admin/manage/page/research/update' => [
+                'title' => 'Manage Home Content | SITES',
+                'isSubPage' => true,
+                'active' => 'pages',
+                'view' => 'update-research',
+                'data' => [
+                    'id' => $id,
+                    'get_research_data_by_id',
+                    'get_platforms',
+                    'get_technologies',
+                    'get_repositories',
+                    'get_research_images',
+                    'get_research_technologies',
+                    'get_research_authors'
+                ]
+            ],
+            'admin/manage/page/research/delete' => [
+                'title' => 'Manage Home Content | SITES',
+                'isSubPage' => true,
+                'active' => 'pages',
+                'view' => 'delete-research',
+                'data' => [
+                    'id' => $id,
+                    'get_research_data_by_id',
                 ]
             ],
             'admin/manage/page/contacts' => [

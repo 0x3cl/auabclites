@@ -4,6 +4,10 @@
         <?= $this->include('admin/templates/navbar') ?>
         <div class=" mx-3 pb-5">
             <div class="container">
+                <?php 
+                    $flashdata = session()->getFlashData('flashdata');
+                    readFlashData($flashdata);
+                ?>
                 <section class="mt-5 overview">
                     <div class="mb-4">
                         <div class="card">

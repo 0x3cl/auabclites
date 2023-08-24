@@ -30,6 +30,17 @@ $routes->set404Override();
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 
+// API ROUTES
+
+$routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($routes) {
+    $routes->group('view', function($routes) {
+        $routes->get('overview', 'ApiController::get_overview');
+        $routes->get('visitors', 'ApiController::get_visitors');
+        $routes->get('referrers', 'ApiController::get_referrers');   
+    });
+});
+
+
 // HOME ROUTES
 
 $routes->group('', ['namespace' => 'App\Controllers\Home'], function($routes) {
@@ -56,6 +67,11 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
     $routes->group('login', function($routes) {
         $routes->get('/', 'ViewsController::index');
         $routes->post('/', 'Process\LoginAuthController::login');
+    });
+
+    $routes->group('widgets', function($routes) {
+        $routes->get('/', 'ViewsController::index'); 
+        $routes->post('toggle', 'Process\WidgetController::index'); 
     });
 
     $routes->get('dashboard', 'ViewsController::index');
@@ -126,13 +142,30 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
             $routes->get('update/(:num)', 'ViewsController::index/$1');
             $routes->get('delete/(:num)', 'ViewsController::index/$1');
 
-            $routes->post('add', 'Process\OfficersController::add');
+            $routes->post('add', 'Process\OfficersController::add_data');
             $routes->post('update/image', 'Process\OfficersController::update_image');
             $routes->post('update/data', 'Process\OfficersController::update_data');
-            $routes->post('delete', 'Process\OfficersController::delete');
+            $routes->post('delete', 'Process\OfficersController::delete_data');
 
         });
-        $routes->get('page/research', 'ViewsController::index');
+        $routes->group('page/research', function($routes) {
+            $routes->get('/', 'ViewsController::index');
+            $routes->get('add', 'ViewsController::index');
+            $routes->get('update/(:num)', 'ViewsController::index/$1');
+            $routes->get('delete/(:num)', 'ViewsController::index/$1');
+
+
+            $routes->post('add', 'Process\ResearchController::add_data');
+
+            $routes->post('update/data', 'Process\ResearchController::update_data');
+            $routes->post('update/banner', 'Process\ResearchController::update_banner');
+            $routes->post('add/images', 'Process\ResearchController::add_image');
+            $routes->post('add/author', 'Process\ResearchController::add_author');
+            $routes->post('delete/author', 'Process\ResearchController::delete_author');
+            $routes->post('delete', 'Process\ResearchController::delete_data');
+            $routes->post('delete/image', 'Process\ResearchController::delete_image');
+
+        });
         $routes->get('page/contacts', 'ViewsController::index');
         $routes->post('page/contacts', 'Process\ContactController::update');
     });

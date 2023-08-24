@@ -333,9 +333,9 @@ code {
 }
 
 
-
 table th, table td {
     white-space: nowrap;
+    width: 100%;
 }
 
 table img {
@@ -349,4 +349,8 @@ textarea {
     resize: none;
     padding-top: 15px !important;
     height: 250px;
+}
+
+.widgets .card {
+    height: max-content;
 }

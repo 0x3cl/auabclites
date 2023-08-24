@@ -172,13 +172,14 @@ class UserController extends BaseController {
         if($this->request->getMethod() === 'post') {
             $model = new CustomModel();
             $id = $this->request->getPost('id');
+        
             try {
-                $model->deleteData('lites_users', 'id', $id);
+                $model->deleteData('lites_users', ['id' => $id]);
                 $flashdata = [
                     'status' => 'success',
                     'message' => 'User deleted successfully',
                 ];
-            } catch (\Throwable $th) {
+            } catch (\Exception $e) {
                 $flashdata = [
                     'status' => 'error',
                     'message' => 'error: ' . $e->getMessage(),

@@ -397,6 +397,16 @@ table .avatar-image {
     height: 150px;
 }
 
+.technologies p {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.technologies ul li label {
+    font-weight: 500;
+    font-size: 12px;
+}
+
 @media (min-width: 0px) and (max-width: 375px) {
     .sidebar {
         width: 70%;

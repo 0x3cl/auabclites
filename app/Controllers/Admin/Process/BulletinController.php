@@ -374,21 +374,21 @@ class BulletinController extends BaseController {
                 $file = $this->request->getFile('banner-image');
                 
                 $join = [
-                    '0' => [
+                    [
                         'table' => 'lites_bulletin',
                         'select' => 'lites_bulletin.category, lites_bulletin_image.image, lites_bulletin_image.id',
-                        'join' => 'lites_bulletin.id = lites_bulletin_image.bulletin_id',
+                        'on' => 'lites_bulletin.id = lites_bulletin_image.bulletin_id',
                         'type' => ''
                     ]
                 ];
 
-                $filter = [
-                    '0' => [
+                $condition = [
+                    [
                         'field' => 'lites_bulletin_image.is_banner',
                         'isNot' => 'false',
                         'value' => 1
                     ],
-                    '1' => [
+                    [
                         'field' => 'lites_bulletin_image.bulletin_id',
                         'isNot' => 'false',
                         'value' => $id
@@ -398,7 +398,7 @@ class BulletinController extends BaseController {
                 $model = new CustomModel;
 
                 try {
-                    $temp_data = $model->getData('lites_bulletin_image', $filter, $join);
+                    $temp_data = $model->getData('lites_bulletin_image', $join, $condition);
                     $previous_id = $temp_data[0]->id;
                     $previous_image = $temp_data[0]->image;
                 } catch (\Exception $e) {
@@ -470,17 +470,17 @@ class BulletinController extends BaseController {
 
             $id = $this->request->getPost('id');
             $join = [
-                '0' => [
+                [
                     'table' => 'lites_bulletin',
                     'select' => 'lites_bulletin.category, lites_bulletin_image.image, lites_bulletin_image.id',
-                    'join' => 'lites_bulletin.id = lites_bulletin_image.bulletin_id',
+                    'on' => 'lites_bulletin.id = lites_bulletin_image.bulletin_id',
                     'type' => ''
                 ]
             ];
 
-            $filter = [
-                '0' => [
-                    'field' => 'lites_bulletin_image.id',
+            $condition = [
+                [
+                    'column' => 'lites_bulletin_image.id',
                     'isNot' => 'false',
                     'value' => $id
                 ]
@@ -489,7 +489,7 @@ class BulletinController extends BaseController {
             $model = new CustomModel;
 
             try {
-                $temp_data = $model->getData('lites_bulletin_image', $filter, $join);
+                $temp_data = $model->getData('lites_bulletin_image', $join, $condition);
                 $previous_id = $temp_data[0]->id;
                 $previous_image = $temp_data[0]->image;
             } catch (\Exception $e) {
@@ -503,9 +503,9 @@ class BulletinController extends BaseController {
             $path = format_bulletin_category($temp_data[0]->category);
             $uploadPath = './assets/home/images/bulletin/'.$path.'/';
 
-
             try {
-                $model->deleteData('lites_bulletin_image', 'lites_bulletin_image.id', $id);
+
+                $model->deleteData('lites_bulletin_image', ['id' => $id]);
                 unlink($uploadPath . $previous_image);
                 $flashdata = [
                     'status' => 'success',
@@ -587,8 +587,8 @@ class BulletinController extends BaseController {
             $model = new CustomModel;
 
             try {
-                if($model->deleteData('lites_bulletin', 'lites_bulletin.id', $id) 
-                    && $model->deleteData('lites_bulletin_image', 'lites_bulletin_image.bulletin_id', $id)) {
+                if($model->deleteData('lites_bulletin', ['id' => $id])
+                    && $model->deleteData('lites_bulletin_image', ['bulletin_id' => $id])) {
                 
                     $flashdata = [
                         'status' => 'success',

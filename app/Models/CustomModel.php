@@ -11,46 +11,40 @@ class CustomModel extends Model {
         $this->db = \Config\Database::connect();
     }
 
-    public function getData($table, $hasFilter = null, $hasJoin = null, $hasGroup = null) {
+    public function getData($table, $join = NULL, $conditions = NULL, $group = NULL, $order = NULL) {
         $builder = $this->db->table($table);
-
-        if(is_array($hasJoin)) {
-            foreach ($hasJoin as $join) {
-                if(array_key_exists('select', $join)) {
-                    $builder->select($join['select']);
+        if(is_array($join)) {
+            foreach ($join as $value) {
+                if(array_key_exists('select', $value)) {
+                    $builder->select($value['select']);
                 }
-                $builder->join($join['table'], $join['join'], $join['type']);
+                $builder->join($value['table'], $value['on'], $value['type']);
             }
         }
-
-        if(is_array($hasFilter)) {
-            foreach($hasFilter as $filter) {
-                if(array_key_exists('field', $filter) && array_key_exists('value', $filter)) {
-                    if(array_key_exists('isNot', $filter) && $filter["isNot"] === 'false') {
-                        $builder->where($filter["field"], $filter["value"]);
+        if(is_array($conditions)) {
+            foreach($conditions as $value) {
+                if(array_key_exists('column', $value) && array_key_exists('value', $value)) {
+                    if(array_key_exists('isNot', $value) && $value['isNot'] === 'false') {
+                        $builder->where($value['column'], $value['value']);
                     } else {
-                        $builder->where($filter["field"] . '!=', $filter["value"]);
+                        $builder->where($value['column'] . '!=', $value['value']);
                     }
                 }
             }
         }
-
-        if(is_array($hasGroup)) {
-            foreach ($hasGroup as $group) {
-                if(array_key_exists('by', $group)) {
-                    $builder->groupBy($group['by']);
+        if(is_array($group)) {
+            foreach ($group as $value) {
+                if(array_key_exists('by', $value)) {
+                    $builder->groupBy($value['by']);
                 }
             }
         }
+        if($order) {
+            $builder->orderBy($order);
+        }
+        return $builder->get()->getResult();
 
-        // print_r($builder->getCompiledSelect());
-    
-        $result = $builder->get()->getResult();
-    
-        return $result;
     }
-    
-    
 
     public function insertData($table, $data) {
         $builder = $this->db->table($table);
@@ -63,9 +57,14 @@ class CustomModel extends Model {
         return $builder->insertBatch($data);
     }
 
-    public function deleteData($table, $where, $value) {
+    public function deleteData($table, $condition) {
         $builder = $this->db->table($table);
-        $builder->where($where, $value);
+        if(is_array($condition)) {
+            foreach($condition as $key => $value) {
+                $builder->where($key, $value);
+            }
+        }
+        
         return $builder->delete();
     }
 

@@ -112,3 +112,11 @@ function format_timestamp_to_data($dt) {
     $dateTime = new DateTime($dt);
     return $dateTime->format('F j, Y');
 }
+
+function convertReferrer($url) {
+    $matches = array();
+    if (preg_match('/https:\/\/l\.([^.]+)\.com\//', $url, $matches)) {
+        return strtoupper($matches[1]);
+    }
+    return false;
+}

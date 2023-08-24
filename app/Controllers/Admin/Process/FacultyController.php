@@ -144,15 +144,15 @@ class FacultyController extends BaseController {
 
                 $model = new CustomModel;
 
-                $filter = [
-                    '0' => [
-                        'field' => 'lites_faculty.id',
+                $condition = [
+                    [
+                        'column' => 'lites_faculty.id',
                         'isNot' => 'false',
                         'value' => $id
                     ]
                 ];
 
-                $previous_image = $model->getData('lites_faculty', $filter)[0]->image;
+                $previous_image = $model->getData('lites_faculty', NULL, $condition)[0]->image;
 
                 if(!empty($previous_image)) {
                     unlink($path . $previous_image);   
@@ -243,7 +243,7 @@ class FacultyController extends BaseController {
             $model = new CustomModel;
 
             try {
-                if($model->deleteData('lites_faculty', 'lites_faculty.id', $id)) {
+                if($model->deleteData('lites_faculty', ['id' => $id])) {
                     $flashdata = [
                         'status' => 'success',
                         'message' => 'faculty successfully deleted'
