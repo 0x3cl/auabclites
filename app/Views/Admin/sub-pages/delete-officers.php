@@ -23,17 +23,17 @@
                                         <div class="card-body">
                                             <div class="user-content">
                                                 <div class="avatar-image">
-                                                    <img src="/assets/home/images/officers/<?php echo $data["get_officers_by_id"][0]->image?>" alt="" srcset="">
+                                                    <img src="/assets/home/images/officers/<?php echo $data["get_officers"][0]->image?>" alt="" srcset="">
                                                 </div>
                                                 <div class="w-100">
-                                                    <input type="hidden" name="id" value="<?= $data["get_officers_by_id"][0]->id ?>">
+                                                    <input type="hidden" name="id" value="<?= $data["get_officers"][0]->id ?>">
                                                     <ul class="list-unstyled">
                                                         <?php
                                                         
-                                                            if(empty($data["get_officers_by_id"])) {
+                                                            if(empty($data["get_officers"])) {
 
                                                             } else {
-                                                                foreach($data["get_officers_by_id"] as $value) {
+                                                                foreach($data["get_officers"] as $value) {
                                                                     echo '<li>FULL NAME: <span>'.strtoupper($value->first_name .' '. $value->last_name).'</span></li>';
                                                                     echo '<li>POSITION: <span>'.strtoupper($value->position).'</span></li>';
                                                                 }

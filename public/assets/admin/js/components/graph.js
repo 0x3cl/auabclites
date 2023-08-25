@@ -1,4 +1,80 @@
-import { get_visitors, get_referrers } from "./data.js";
+import { get_overview, get_visitors, get_referrers } from "./data.js";
+
+export function site_overview() {
+  
+  get_overview()
+    .then((response) => {
+        // Check if the response status is 200 and the message is 'ok'
+        if (response.status === 200 && response.message === 'ok') {
+          console.log(response.data);
+          const dom = `
+          <div class="row mt-4">
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card orange">
+                    <div class="card-header border-0 bg-transparent">
+                        Total Users
+                    </div>
+                    <div class="card-body">
+                        <h1 class="m-0">`+response.data.total_users+`</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card green">
+                    <div class="card-header border-0 bg-transparent">
+                        Total Visitors
+                    </div>
+                    <div class="card-body">
+                        <h1 class="m-0">`+response.data.total_visitors+`</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card blue">
+                    <div class="card-header border-0 bg-transparent">
+                        Total Bulletin
+                    </div>
+                    <div class="card-body">
+                        <h1 class="m-0">`+response.data.total_bulletin+`</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card violet">
+                    <div class="card-header border-0 bg-transparent">
+                        Total Faculty
+                    </div>
+                    <div class="card-body">
+                        <h1 class="m-0">`+response.data.total_faculty+`</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card red">
+                    <div class="card-header border-0 bg-transparent">
+                        Total Officers
+                    </div>
+                    <div class="card-body">
+                        <h1 class="m-0">`+response.data.total_officers+`</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4 mb-3">
+                <div class="card dark-blue">
+                    <div class="card-header border-0 bg-transparent">
+                        Total Research
+                    </div>
+                    <div class="card-body">
+                        <h1 class="m-0">`+response.data.total_research+`</h1>
+                    </div>
+                </div>
+            </div>
+          `;
+
+          $('#overview-dom').html(dom);
+        }
+    })
+}
 
 export function site_visitor_graph() {
 

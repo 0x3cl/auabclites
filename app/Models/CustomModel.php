@@ -11,6 +11,47 @@ class CustomModel extends Model {
         $this->db = \Config\Database::connect();
     }
 
+    public function get_data($data) {
+
+        $builder = $this->db->table($data['table']);
+
+        if(isset($data['select'])) {
+            $builder->select($data['select']);
+        }
+
+        if(isset($data['join']) && is_array($data['join'])) {
+            foreach ($data['join'] as $key => $value) {
+                if(is_array($value)) {
+                    $builder->join($value['table'], $value['on'], $value['type']);
+                } else {
+                    $builder->join($data['join']['table'], $data['join']['on'], $data['join']['type']);
+                    break;
+                }
+            }
+        }
+
+        if(isset($data['condition']) && is_array($data['condition'])) {
+            foreach ($data['condition'] as $key => $value) {
+                if(is_array($value)) {
+                    $builder->where($value['column'], $value['value']);
+                } else {
+                    $builder->where($data['condition']['column'], $data['condition']['value']);
+                    break;
+                }
+            }
+        }
+
+        if(isset($data['order'])) {
+            $builder->orderBy($data['order']);
+        }
+
+        if(isset($data['group'])) {
+            $builder->groupBy($data['group']);
+        }
+
+        return $builder->get()->getResult();
+    }
+
     public function getData($table, $join = NULL, $conditions = NULL, $group = NULL, $order = NULL) {
         $builder = $this->db->table($table);
         if(is_array($join)) {

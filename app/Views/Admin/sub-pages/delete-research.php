@@ -21,15 +21,15 @@
                                             <h5 class="card-title m-0">Are you sure to delete this research?</h5>
                                         </div>
                                         <div class="card-body">
-                                            <img src="/assets/home/images/research/<?php echo $data["get_research_data_by_id"][0]->image?>" alt="" srcset="" class="img-fluid">
+                                            <img src="/assets/home/images/research/<?php echo $data["get_research_data"][0]->image?>" alt="" srcset="" class="img-fluid">
                                             <div class="user-content mt-4">
                                                 <div class="w-100">
-                                                    <input type="hidden" name="id" value="<?= $data["get_research_data_by_id"][0]->id ?>">
+                                                    <input type="hidden" name="id" value="<?= $data["get_research_data"][0]->id ?>">
                                                     <ul class="list-unstyled">
                                                         <?php
                                                         
-                                                            if(!empty($data["get_research_data_by_id"])) {
-                                                                foreach($data["get_research_data_by_id"] as $value) {
+                                                            if(!empty($data["get_research_data"])) {
+                                                                foreach($data["get_research_data"] as $value) {
                                                                     echo '<li>TITLE: <span>'.ucwords($value->title).'</span></li>';
                                                                     echo '<li>ABSTRACT: <span>'.($value->abstract).'</span></li>';
                                                                 }

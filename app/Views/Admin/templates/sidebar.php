@@ -64,22 +64,25 @@
                                 <a href="/admin/manage/page/home" class="text-link"><i class='bx bx-home-alt' ></i> Manage Home</a>
                             </li>
                             <li class="list-unstyled-item">
-                                <a href="/admin/manage/page/admission" class="text-link"><i class='bx bx-info-square' ></i> Manage Admission</a>
+                                <a href="/admin/manage/page/admission" class="text-link"><i class='bx bx-notepad' ></i> Manage Admission</a>
                             </li>
                             <li class="list-unstyled-item">
-                                <a href="/admin/manage/page/bulletin" class="text-link"><i class='bx bx-briefcase' ></i> Manage Bulletin</a>
+                                <a href="/admin/manage/page/bulletin" class="text-link"><i class='bx bx-news'></i> Manage Bulletin</a>
                             </li>
                             <li class="list-unstyled-item">
-                                <a href="/admin/manage/page/faculty" class="text-link"><i class='bx bx-user-voice' ></i> Manage Faculty</a>
+                                <a href="/admin/manage/page/faculty" class="text-link"><i class='bx bx-group'></i> Manage Faculty</a>
                             </li>
                             <li class="list-unstyled-item">
-                                <a href="/admin/manage/page/officers" class="text-link"><i class='bx bx-devices'></i> Manage Officers</a>
+                                <a href="/admin/manage/page/officers" class="text-link"><i class='bx bx-user-pin'></i> Manage Officers</a>
                             </li>
                             <li class="list-unstyled-item">
-                                <a href="/admin/manage/page/research" class="text-link"><i class='bx bx-devices'></i> Manage Research</a>
+                                <a href="/admin/manage/page/research" class="text-link"><i class='bx bx-briefcase'></i> Manage Research</a>
                             </li>
                             <li class="list-unstyled-item">
-                                <a href="/admin/manage/page/contacts" class="text-link"><i class='bx bx-devices'></i> Manage Contacts</a>
+                                <a href="/admin/manage/page/testimonials" class="text-link"><i class='bx bx-user-voice'></i> Manage Testimonials</a>
+                            </li>
+                            <li class="list-unstyled-item">
+                                <a href="/admin/manage/page/contacts" class="text-link"><i class='bx bx-map-pin' ></i> Manage Contacts</a>
                             </li>
                         </ul>
                     </div>

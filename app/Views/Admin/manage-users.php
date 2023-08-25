@@ -1,7 +1,7 @@
 <div class="dashboard-wrapper my-md-0">
-    <?= $this->include('admin/templates/sidebar') ?>
+    <?= view('admin/templates/sidebar') ?>
     <div class="content">
-        <?= $this->include('admin/templates/navbar') ?>
+        <?= view('admin/templates/navbar') ?>
         <div class="inner-content mx-3 pb-5">
             <div class="container overflow-hidden">
                 <section class="mt-5">

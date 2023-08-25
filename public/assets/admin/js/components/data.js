@@ -1,3 +1,9 @@
+export async function get_overview() {
+    const response = await fetch('/api/v1/view/overview');
+    const data = await response.json();
+    return data;
+}
+
 export async function get_visitors() {
     const response = await fetch('/api/v1/view/visitors');
     const data = await response.json();

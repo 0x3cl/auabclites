@@ -20,12 +20,12 @@
                             <div class="card-body">
                                 <form action="/admin/manage/page/faculty/update/image" method="post" enctype="multipart/form-data">
                                     <div class="row">
-                                        <input type="hidden" name="id" value="<?= $data["get_faculty_by_id"][0]->id ?>">
+                                        <input type="hidden" name="id" value="<?= $data["get_faculty"][0]->id ?>">
                                         <div class="col-12 col-md-12 mb-4">
                                             <div class="d-flex gap-3">
                                                 <div class="user-content">
                                                     <div class="avatar-image">
-                                                        <img src="/assets/home/images/faculty/<?php echo $data["get_faculty_by_id"][0]->image?>" alt="" srcset="">
+                                                        <img src="/assets/home/images/faculty/<?php echo $data["get_faculty"][0]->image?>" alt="" srcset="">
                                                     </div>
                                                 </div>
                                                 <div class="dropbox d-flex justify-content-center align-items-center">
@@ -47,16 +47,16 @@
                             <div class="card-body">
                                 <form action="/admin/manage/page/faculty/update/data" method="post">
                                     <div class="row">
-                                        <input type="hidden" name="id" value="<?= $data["get_faculty_by_id"][0]->id ?>">
+                                        <input type="hidden" name="id" value="<?= $data["get_faculty"][0]->id ?>">
                                         <div class="col-12 col-md-6 mb-3">
                                             <div class="form-group">
-                                                <input type="text" name="firstname" id="firstname" class="form-control" autocomplete="disabled" value="<?= $data["get_faculty_by_id"][0]->first_name ?>" required>
+                                                <input type="text" name="firstname" id="firstname" class="form-control" autocomplete="disabled" value="<?= $data["get_faculty"][0]->first_name ?>" required>
                                                 <label for="firstname">First Name</label>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-6 mb-3">
                                             <div class="form-group">
-                                                <input type="text" name="lastname" id="lastname" class="form-control" autocomplete="disabled" value="<?= $data["get_faculty_by_id"][0]->last_name ?>" required>
+                                                <input type="text" name="lastname" id="lastname" class="form-control" autocomplete="disabled" value="<?= $data["get_faculty"][0]->last_name ?>" required>
                                                 <label for="lastname">Last Name</label>
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                                     <option value="">Select Position</option>
                                                     <?php
                                                         foreach($data['get_faculty_positions'] as $value) {
-                                                            echo '<option value="'.$value->id.'" '.($value->id === $data["get_faculty_by_id"][0]->position_id ? 'selected' : '') .'>'.ucwords($value->position).'</option>';
+                                                            echo '<option value="'.$value->id.'" '.($value->id === $data["get_faculty"][0]->position_id ? 'selected' : '') .'>'.ucwords($value->position).'</option>';
                                                         }
                                                     ?>
                                                 </select>

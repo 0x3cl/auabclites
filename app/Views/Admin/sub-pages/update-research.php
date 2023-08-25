@@ -46,22 +46,22 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="row" id="news-form">
-                                        <input type="hidden" name="id" value="<?= $data['get_research_data_by_id'][0]->id ?>">
+                                        <input type="hidden" name="id" value="<?= $data['get_research_data'][0]->id ?>">
                                         <div class="col-12 col-md-12 mb-4">
                                             <div class="form-group">
-                                                <input type="text" name="title" id="title" class="form-control" value="<?= $data['get_research_data_by_id'][0]->title?>" autocomplete="disabled" required>
+                                                <input type="text" name="title" id="title" class="form-control" value="<?= $data['get_research_data'][0]->title?>" autocomplete="disabled" required>
                                                 <label for="title">Title</label>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-12 mb-4">
                                             <div class="form-group">
-                                                <textarea name="abstract" id="abstract" cols="30" rows="10" class="form-control" autocomplete="disabled" required><?= $data['get_research_data_by_id'][0]->abstract?></textarea>
+                                                <textarea name="abstract" id="abstract" cols="30" rows="10" class="form-control" autocomplete="disabled" required><?= $data['get_research_data'][0]->abstract?></textarea>
                                                 <label for="abstract">Abstract</label>
                                             </div>
                                         </div>
                                         <div class="col-12 col-md-12 mb-4">
                                             <div class="form-group">
-                                                <textarea name="features" id="features" cols="30" rows="10" class="form-control" autocomplete="disabled" required><?= $data['get_research_data_by_id'][0]->features?></textarea>
+                                                <textarea name="features" id="features" cols="30" rows="10" class="form-control" autocomplete="disabled" required><?= $data['get_research_data'][0]->features?></textarea>
                                                 <label for="features">Features</label>
                                             </div>
                                         </div>
@@ -80,7 +80,7 @@
                                                 if(!empty($data['get_platforms'])) {
                                                     foreach($data['get_platforms'] as $value) {
                                                         echo '
-                                                        <option value="'.$value->id.'" '.(($data['get_research_data_by_id'][0]->platform_id == $value->id) ? 'selected' : '').'>'.ucwords($value->name).'</option>
+                                                        <option value="'.$value->id.'" '.(($data['get_research_data'][0]->platform_id == $value->id) ? 'selected' : '').'>'.ucwords($value->name).'</option>
                                                         ';
                                                     }
                                                 }
@@ -199,12 +199,12 @@
                                             <?php 
                                                 if(!empty($data['get_repositories'])) {
                                                     foreach($data['get_repositories'] as $value) {
-                                                        echo '<option value="'.$value->id.'" '.(($data['get_research_data_by_id'][0]->repositories_id == $value->id) ? 'selected' : '').'>'.ucwords($value->name).'</option>';
+                                                        echo '<option value="'.$value->id.'" '.(($data['get_research_data'][0]->repositories_id == $value->id) ? 'selected' : '').'>'.ucwords($value->name).'</option>';
                                                     }
                                                 }
                                             ?>
                                         </select>
-                                        <input type="text" name="repo-link" id="repo-link" class="form-control" value="<?= $data['get_research_data_by_id'][0]->link ?>" placeholder="Paste link here">
+                                        <input type="text" name="repo-link" id="repo-link" class="form-control" value="<?= $data['get_research_data'][0]->link ?>" placeholder="Paste link here">
                                     </div>
                                 </div>
                             </div>
@@ -221,11 +221,11 @@
                                     <div class="d-flex gap-3 mt-3">
                                         <div class="user-content">
                                             <div class="avatar-image">
-                                                <img src="/assets/home/images/research/<?= $data['get_research_data_by_id'][0]->image ?>" alt="" srcset="">
+                                                <img src="/assets/home/images/research/<?= $data['get_research_data'][0]->image ?>" alt="" srcset="">
                                             </div>
                                         </div>
                                         <div class="dropbox d-flex justify-content-center align-items-center">
-                                            <input type="hidden" name="id" value="<?= $data['get_research_data_by_id'][0]->id ?>">
+                                            <input type="hidden" name="id" value="<?= $data['get_research_data'][0]->id ?>">
                                             <input type="file" name="banner-image" id="banner-image" class="">
                                         </div>
                                     </div>
@@ -243,7 +243,7 @@
                                 <form action="/admin/manage/page/research/add/images" method="post" enctype="multipart/form-data">
                                     <div class="d-flex gap-3 mt-3">
                                         <div class="dropbox d-flex justify-content-center align-items-center">
-                                            <input type="hidden" name="id" value="<?= $data['get_research_data_by_id'][0]->id ?>">
+                                            <input type="hidden" name="id" value="<?= $data['get_research_data'][0]->id ?>">
                                             <input type="file" name="content-image[]" id="content-image" class="" multiple>
                                         </div>
                                     </div>
@@ -294,7 +294,7 @@
                                 <form action="/admin/manage/page/research/add/author" method="post" enctype="multipart/form-data">
                                     <div class="d-flex gap-3 mt-3 mb-4">
                                         <div class="dropbox d-flex justify-content-center align-items-center">
-                                            <input type="hidden" name="id" value="<?= $data['get_research_data_by_id'][0]->id ?>">
+                                            <input type="hidden" name="id" value="<?= $data['get_research_data'][0]->id ?>">
                                             <input type="file" name="author-image" id="content-image">
                                         </div>
                                     </div>

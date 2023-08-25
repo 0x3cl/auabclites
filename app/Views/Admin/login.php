@@ -1,3 +1,4 @@
+<?= view('Admin/templates/header') ?>
 <div class="container">
     <div class="login-wrapper my-5 my-md-0">
         <div class="login-content">
@@ -50,3 +51,4 @@
         </div>
     </div>
 </div>
+<?= view('Admin/templates/footer') ?>

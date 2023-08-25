@@ -1,7 +1,7 @@
 <div class="dashboard-wrapper my-md-0">
-    <?= $this->include('admin/templates/sidebar') ?>
+    <?= view('admin/templates/sidebar') ?>
     <div class="content">
-        <?= $this->include('admin/templates/navbar') ?>
+        <?= view('admin/templates/navbar') ?>
         <div class="inner-content mx-3 pb-5">
             <div class="container">
                 <div class="d-block d-md-flex justify-content-between align-items-center mt-5">
@@ -17,7 +17,7 @@
                 </div>
                 <hr>
                 <?php 
-                    if(empty($data['get_user_widgets'])) {
+                    if(empty($data['user_widgets'])) {
                         echo '
                             <div class="card mt-5">
                                 <div class="card-body">
@@ -26,72 +26,13 @@
                             </div>
                         ';
                     } else {
-                        foreach($data['get_user_widgets'] as $value) {
+                        foreach($data['user_widgets'] as $value) {
                             if($value->widget_id == 1) {
                                 echo '
                                 <section class="mt-5 overview">
                                     <small>Overview</small>
-                                    <div class="row mt-4">
-                                        <div class="col-12 col-md-4 mb-3">
-                                            <div class="card orange">
-                                                <div class="card-header border-0 bg-transparent">
-                                                    Total Users
-                                                </div>
-                                                <div class="card-body">
-                                                    <h1 class="m-0">0</h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4 mb-3">
-                                            <div class="card green">
-                                                <div class="card-header border-0 bg-transparent">
-                                                    Total Visitors
-                                                </div>
-                                                <div class="card-body">
-                                                    <h1 class="m-0">0</h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4 mb-3">
-                                            <div class="card blue">
-                                                <div class="card-header border-0 bg-transparent">
-                                                    Total Bulletin
-                                                </div>
-                                                <div class="card-body">
-                                                    <h1 class="m-0">0</h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4 mb-3">
-                                            <div class="card violet">
-                                                <div class="card-header border-0 bg-transparent">
-                                                    Total Faculty
-                                                </div>
-                                                <div class="card-body">
-                                                    <h1 class="m-0">0</h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4 mb-3">
-                                            <div class="card red">
-                                                <div class="card-header border-0 bg-transparent">
-                                                    Total Officers
-                                                </div>
-                                                <div class="card-body">
-                                                    <h1 class="m-0">0</h1>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-12 col-md-4 mb-3">
-                                            <div class="card dark-blue">
-                                                <div class="card-header border-0 bg-transparent">
-                                                    Total Research
-                                                </div>
-                                                <div class="card-body">
-                                                    <h1 class="m-0">0</h1>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div id="overview-dom">
+
                                     </div>
                                 </section>
                                 ';
@@ -190,3 +131,4 @@
         </div>
     </div>
 </div>
+

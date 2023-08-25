@@ -16,6 +16,7 @@ class ApiController extends BaseController {
         $model = new CustomModel;
         
         $tables = [
+            'total_visitors' => 'lites_site_visitors',
             'total_users' => 'lites_users',
             'total_bulletin' => 'lites_bulletin',
             'total_faculty' => 'lites_faculty',

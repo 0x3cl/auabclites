@@ -62,30 +62,31 @@ $routes->group('', ['namespace' => 'App\Controllers\Home'], function($routes) {
 
 $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($routes) {
     $routes->get('/', 'ViewsController::index');
-    $routes->get('signout', 'ViewsController::index');
+    $routes->get('signout', 'ViewsController::sign_out');
 
     $routes->group('login', function($routes) {
-        $routes->get('/', 'ViewsController::index');
+        $routes->get('/', 'ViewsController::login');
         $routes->post('/', 'Process\LoginAuthController::login');
     });
 
     $routes->group('widgets', function($routes) {
-        $routes->get('/', 'ViewsController::index'); 
+        $routes->get('/', 'ViewsController::widgets'); 
         $routes->post('toggle', 'Process\WidgetController::index'); 
     });
 
-    $routes->get('dashboard', 'ViewsController::index');
-    $routes->get('notify', 'ViewsController::index');
+    $routes->get('dashboard', 'ViewsController::dashboard');
+    $routes->get('notify', 'ViewsController::notify');
 
     // MANAGE USERS
 
     $routes->group('manage', function($routes) {
-        $routes->get('users', 'ViewsController::index');
-        $routes->get('users/add', 'ViewsController::index');
-        $routes->post('users/add', 'Process\UserController::add');
+        $routes->get('users', 'ViewsController::manage_users');
+        $routes->get('users/add', 'ViewsController::add_users');
         
-        $routes->get('users/update/(:num)', 'ViewsController::index/$1');
-        $routes->get('users/delete/(:num)', 'ViewsController::index/$1');
+        $routes->get('users/update/(:num)', 'ViewsController::update_users/$1');
+        $routes->get('users/delete/(:num)', 'ViewsController::delete_users/$1');
+
+        $routes->post('users/add', 'Process\UserController::add');
         $routes->post('users/update/profile/image', 'Process\UserController::update_profile_image');
         $routes->post('users/update/profile', 'Process\UserController::update_profile');
         $routes->post('users/delete', 'Process\UserController::delete');
@@ -95,10 +96,9 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
 
     $routes->group('manage', function($routes) {
         $routes->group('page/home', function($routes) {
-            $routes->get('/', 'ViewsController::index');
-            $routes->get('logo/update/(:num)', 'ViewsController::index/$1');
-            $routes->get('carousel', 'ViewsController::index');
-            $routes->get('courses', 'ViewsController::index');
+            $routes->get('/', 'ViewsController::manage_home');
+            $routes->get('logo/update/(:num)', 'ViewsController::update_logo/$1');
+            $routes->get('carousel', 'ViewsController::update_carousel');
 
             $routes->post('logo/update', 'Process\HomeController::update_banner');
             $routes->post('banner/update', 'Process\HomeController::update_banner');
@@ -109,11 +109,11 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
         $routes->get('page/admission', 'ViewsController::index');
 
         $routes->group('page/bulletin', function($routes) {
-            $routes->get('/', 'ViewsController::index');
-            $routes->get('view', 'ViewsController::index');
-            $routes->get('add', 'ViewsController::index');
-            $routes->get('update/(:num)', 'ViewsController::index/$1');
-            $routes->get('delete/(:num)', 'ViewsController::index/$1');
+            $routes->get('/', 'ViewsController::manage_bulletin');
+            $routes->get('view', 'ViewsController::view_bulletin');
+            $routes->get('add', 'ViewsController::add_bulletin');
+            $routes->get('update/(:num)', 'ViewsController::update_bulletin/$1');
+            $routes->get('delete/(:num)', 'ViewsController::delete_bulletin/$1');
 
             $routes->post('add', 'Process\BulletinController::add');
             $routes->post('update/(:num)', 'Process\BulletinController::update/$1');
@@ -125,10 +125,10 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
         });
 
         $routes->group('page/faculty', function($routes) {
-            $routes->get('/', 'ViewsController::index');
-            $routes->get('add', 'ViewsController::index');
-            $routes->get('update/(:num)', 'ViewsController::index/$1');
-            $routes->get('delete/(:num)', 'ViewsController::index/$1');
+            $routes->get('/', 'ViewsController::manage_faculty');
+            $routes->get('add', 'ViewsController::add_faculty');
+            $routes->get('update/(:num)', 'ViewsController::update_faculty/$1');
+            $routes->get('delete/(:num)', 'ViewsController::delete_faculty/$1');
 
             $routes->post('add', 'Process\FacultyController::add');
             $routes->post('update/image', 'Process\FacultyController::update_image');
@@ -137,10 +137,10 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
         });
 
         $routes->group('page/officers', function($routes) {
-            $routes->get('/', 'ViewsController::index');
-            $routes->get('add', 'ViewsController::index');
-            $routes->get('update/(:num)', 'ViewsController::index/$1');
-            $routes->get('delete/(:num)', 'ViewsController::index/$1');
+            $routes->get('/', 'ViewsController::manage_officers');
+            $routes->get('add', 'ViewsController::add_officers');
+            $routes->get('update/(:num)', 'ViewsController::update_officers/$1');
+            $routes->get('delete/(:num)', 'ViewsController::delete_officers/$1');
 
             $routes->post('add', 'Process\OfficersController::add_data');
             $routes->post('update/image', 'Process\OfficersController::update_image');
@@ -149,10 +149,10 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
 
         });
         $routes->group('page/research', function($routes) {
-            $routes->get('/', 'ViewsController::index');
-            $routes->get('add', 'ViewsController::index');
-            $routes->get('update/(:num)', 'ViewsController::index/$1');
-            $routes->get('delete/(:num)', 'ViewsController::index/$1');
+            $routes->get('/', 'ViewsController::manage_research');
+            $routes->get('add', 'ViewsController::add_research');
+            $routes->get('update/(:num)', 'ViewsController::update_research/$1');
+            $routes->get('delete/(:num)', 'ViewsController::delete_research/$1');
 
 
             $routes->post('add', 'Process\ResearchController::add_data');
@@ -166,7 +166,7 @@ $routes->group('admin', ['namespace' => 'App\Controllers\Admin'], function($rout
             $routes->post('delete/image', 'Process\ResearchController::delete_image');
 
         });
-        $routes->get('page/contacts', 'ViewsController::index');
+        $routes->get('page/contacts', 'ViewsController::manage_contact');
         $routes->post('page/contacts', 'Process\ContactController::update');
     });
 
